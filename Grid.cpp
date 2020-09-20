@@ -23,6 +23,10 @@ int Grid::getGridSizeY(){
     return gridSizeY;
 }
 
+void Grid::setStepsPerMillimeter(int steps){
+    stepsPerMillimeter = steps;
+}
+
 void Grid::setMoveCoordinates(int position){
     if(position%gridSizeX==0){
         yPosToMove = position/gridSizeX;
@@ -44,9 +48,9 @@ int Grid::getYcoordinate(){
 }
 
 int Grid::getDistanceToMoveX(){
-    return xPosToMove*columnWidth-columnWidth;
+    return (xPosToMove*columnWidth-columnWidth)*stepsPerMillimeter;
 }
 
 int Grid::getDistanceToMoveY(){
-    return yPosToMove*rowHeight-rowHeight;
+    return (yPosToMove*rowHeight-rowHeight)*stepsPerMillimeter;
 }

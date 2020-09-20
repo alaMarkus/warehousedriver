@@ -26,6 +26,8 @@ class Grid{
         int getDistanceToMoveX();
         int getDistanceToMoveY();
 
+        void setStepsPerMillimeter(int steps);
+
     private:
         int gridSizeX;
         int gridSizeY;
@@ -33,6 +35,7 @@ class Grid{
         int yPosToMove;
         int columnWidth;
         int rowHeight;
+        int stepsPerMillimeter;
 };
 
 #endif
