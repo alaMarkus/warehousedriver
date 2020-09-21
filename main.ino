@@ -1,5 +1,4 @@
 #include <arduino.h>
-
 #include <AccelStepper.h>
 #include <MultiStepper.h>
 
@@ -14,7 +13,7 @@ MultiStepper steppers1;
 MultiStepper steppers2;
 
 Grid grid;
-int test;
+String input;
 int isSet = 0;
 
 void setup()
@@ -57,18 +56,16 @@ void setup()
 
 void loop()
 {
-    /*stepper1.run();
-    stepper2.run();
-    stepper3.run();
-    stepper4.run();*/
     if (Serial.available() > 0) {
         digitalWrite(8, LOW);
-        int input = Serial.read();
-        int inputPos = input - 48;
+        input = Serial.readString();
+        int inputPos = input.toInt();
         Serial.print("input: ");
         Serial.print(inputPos);
-        grid.setMoveCoordinates(inputPos);
-        isSet = 1;
+        if (inputPos > 0 && inputPos<13){
+            grid.setMoveCoordinates(inputPos);
+            isSet = 1;
+        }
     }
     if (isSet == 1){
         int x = grid.getXcoordinate();
@@ -100,4 +97,5 @@ void loop()
     if (stepper1.distanceToGo()==0&&stepper3.distanceToGo()==0){
         digitalWrite(8,HIGH);
     }
+    Serial.flush();
 }
