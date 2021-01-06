@@ -47,10 +47,10 @@ void setup()
 
 
     Serial.begin(9600);
-    grid.setGridX(4);
-    grid.setGridY(3);
+    grid.setGridX(8);
+    grid.setGridY(7);
     grid.setColumnWidth(200);
-    grid.setRowHeight(300);
+    grid.setRowHeight(200);
     grid.setStepsPerMillimeter(4);
 }
 
@@ -62,7 +62,7 @@ void loop()
         int inputPos = input.toInt();
         Serial.print("input: ");
         Serial.print(inputPos);
-        if (inputPos > 0 && inputPos<13){
+        if (inputPos > 0 && inputPos<grid.getSlots()+2){
             grid.setMoveCoordinates(inputPos);
             isSet = 1;
         }

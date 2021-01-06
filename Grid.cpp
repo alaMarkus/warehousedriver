@@ -23,6 +23,10 @@ int Grid::getGridSizeY(){
     return gridSizeY;
 }
 
+int Grid::getSlots(){
+    return gridSizeX*gridSizeY;
+}
+
 void Grid::setStepsPerMillimeter(int steps){
     stepsPerMillimeter = steps;
 }

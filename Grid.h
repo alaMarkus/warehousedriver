@@ -11,6 +11,9 @@ class Grid{
         int getGridSizeX();
         int getGridSizeY();
 
+        //get number of slots in grid
+        int getSlots();
+
         // calculate x and y coordinates to move from position id
         void setMoveCoordinates(int position);
 
@@ -36,6 +39,7 @@ class Grid{
         int columnWidth;
         int rowHeight;
         int stepsPerMillimeter;
+        int slots;
 };
 
 #endif
